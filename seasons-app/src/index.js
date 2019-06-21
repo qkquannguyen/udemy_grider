@@ -13,7 +13,7 @@ class App extends React.Component {
         // !!! NOTE: This is the only time there will be a direct assignment of the state object
         this.state = {
             // --- NOTE: If you don't know the value yet, then default to 'null'
-            latitude: null
+            latitude: null,
         }
     }
 
