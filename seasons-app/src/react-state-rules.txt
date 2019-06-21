@@ -1,0 +1,8 @@
+------------------------------------------- State Rules -------------------------------------------
+    1. Only usable with class components
+    2. You will confuse props with state
+    3. 'State' is a JS Object that contains data relevant to a component(s)
+    4. Updating 'state' on a component causes the component to (almost) instantly rerender
+        - Solves the geolocation problem of rerendering
+    5. State must be initialized when a component is created
+    6. State can ONLY be updated using the function 'setState'
