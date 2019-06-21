@@ -10,6 +10,7 @@ class App extends React.Component {
         super(props)
 
         // --- NOTE: This is the state object
+        // !!! NOTE: This is the only time there will be a direct assignment of the state object
         this.state = {
             // --- NOTE: If you don't know the value yet, then default to 'null'
             latitude: null
@@ -19,11 +20,17 @@ class App extends React.Component {
     // --- NOTE: React says we have to define 'render'
     render() {
         window.navigator.geolocation.getCurrentPosition(
-            (position) => console.log(position),
+            position => {
+                // --- Call setState()
+                // --- NOTE: Anytime you need to update the state, you will call 'setState()'
+                // !!! WARN: Do not direct assign to the state object.
+                // !!! NOTE: Exception --> Initialize the state in the constructor()
+                this.setState({ latitude: position.coords.latitude })
+            },
             (err) => console.log(err)
         )
     
-        return <div>Latitude: </div>
+        return <div>Latitude: {this.state.latitude} </div>
     }
 }
 
