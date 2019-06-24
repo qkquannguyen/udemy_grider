@@ -16,7 +16,9 @@ class App extends React.Component {
             latitude: null,
             errorMessage: ''
         }
+    }
 
+    componentDidMount() {
         window.navigator.geolocation.getCurrentPosition(
             position => {
                 // --- Call setState()
@@ -30,7 +32,7 @@ class App extends React.Component {
                     errorMessage: err.message
                 })
             }
-        )
+        )  
     }
 
     // --- NOTE: React says we have to define 'render'
