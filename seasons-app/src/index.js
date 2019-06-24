@@ -14,11 +14,9 @@ class App extends React.Component {
         this.state = {
             // --- NOTE: If you don't know the value yet, then default to 'null'
             latitude: null,
+            errorMessage: ''
         }
-    }
 
-    // --- NOTE: React says we have to define 'render'
-    render() {
         window.navigator.geolocation.getCurrentPosition(
             position => {
                 // --- Call setState()
@@ -27,13 +25,43 @@ class App extends React.Component {
                 // !!! NOTE: Exception --> Initialize the state in the constructor()
                 this.setState({ latitude: position.coords.latitude })
             },
-            (err) => console.log(err)
+            err => {
+                this.setState({
+                    errorMessage: err.message
+                })
+            }
         )
-    
-        return <div>Latitude: {this.state.latitude} </div>
+    }
+
+    // --- NOTE: React says we have to define 'render'
+    render() {
+        if (this.state.errorMessage && !this.state.latitude) {
+            return <div>Error: {this.state.errorMessage}</div>
+        }
+        if (!this.state.errorMessage && this.state.latitude) {
+            return <div>Latitude: {this.state.latitude}</div>
+        }
+
+        return <div>Loading!</div>
     }
 }
 
 ReactDOM.render(
     <App/>, document.querySelector('#root')
 )
+
+/**
+ * !Other Notes!
+ * ------------------------------------------------------------------------------------------------
+ * Components
+ * ------------------------------------------------------------------------------------------------
+ * --- Component Lifecycle
+ * -------- constructor
+ * -------- render
+ * -------- *content will be visible on screen*
+ * -------- componentDidMount
+ * -------- *sit and wait for updates*
+ * -------- componentDidUpdate
+ * -------- *sit and wait until this component is not longer shown*
+ * -------- componentWillUnmount
+ */
