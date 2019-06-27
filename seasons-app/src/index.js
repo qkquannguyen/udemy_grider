@@ -2,6 +2,7 @@ import React from 'react';
 import ReactDOM from 'react-dom';
 
 import SeasonDisplay from './SeasonDisplay'
+import LoadSpinner from './LoadSpinner'
 
 class App extends React.Component {
 
@@ -52,7 +53,7 @@ class App extends React.Component {
             return <SeasonDisplay latitude={this.state.latitude} />
         }
 
-        return <div>Loading!</div>
+        return <LoadSpinner/>
     }
 }
 
