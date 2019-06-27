@@ -44,8 +44,8 @@ class App extends React.Component {
     //     }
     // }
 
-    // --- NOTE: React says we have to define 'render'
-    render() {
+    // --- NOTE: This is a helper method
+    renderContent() {
         if (this.state.errorMessage && !this.state.latitude) {
             return <div>Error: {this.state.errorMessage}</div>
         }
@@ -53,7 +53,17 @@ class App extends React.Component {
             return <SeasonDisplay latitude={this.state.latitude} />
         }
 
-        return <LoadSpinner/>
+        return <LoadSpinner message="Please Click Allow For a Waifu"/>
+    }
+
+    // --- NOTE: React says we have to define 'render'
+    render() {
+        return (
+            // --- NOTE: There is no class 'border red'. This is just to show an example.
+            <div className="border red">
+                {this.renderContent()}
+            </div>
+        )
     }
 }
 
