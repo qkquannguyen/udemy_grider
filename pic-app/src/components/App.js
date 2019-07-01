@@ -1,9 +1,21 @@
-import React from 'react';
-import SearchBar from './SearchBar';
+import React from 'react'
+import axios from 'axios'
+
+import SearchBar from './SearchBar'
+import config from '../config'
 
 class App extends React.Component {
     onSearchSubmit(term) {
-        console.log(term)
+        // --- Call to Axios Function
+        axios.get('https://api.unsplash.com/search/photos', {
+            params: { 
+                query: term 
+            },    
+            headers: {
+                Authorization: `Client-ID ${config.UNSPLASH_ACCESS_TOKEN}`
+            }
+        })
+        console.log("yay")
     }
 
     render() {
