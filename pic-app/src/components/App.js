@@ -1,19 +1,18 @@
 import React from 'react'
-import axios from 'axios'
 
 import SearchBar from './SearchBar'
-import config from '../config'
+import unsplash from '../api/unsplash'
 
 class App extends React.Component {
+    state = {
+        waifus: []
+    }
     // // --- NOTE: Using A Promise
     // onSearchSubmit(term) {
     //     // --- Call to Axios Function
-    //     axios.get('https://api.unsplash.com/search/photos', {
+    //     axios.get('/search/photos', {
     //         params: { 
     //             query: term 
-    //         },    
-    //         headers: {
-    //             Authorization: `Client-ID ${config.UNSPLASH_ACCESS_TOKEN}`
     //         }
     //     }).then((response) => {
     //         // --- NOTE: This is essentially a callback from whatever we get from Unsplash API
@@ -22,23 +21,22 @@ class App extends React.Component {
     // }
 
     // --- NOTE: Using the async keyword
-    async onSearchSubmit(term) {
+    onSearchSubmit = async (term) => {
         // --- Call to Axios Function
-        const response = await axios.get('https://api.unsplash.com/search/photos', {
+        const response = await unsplash.get('/search/photos', {
             params: { 
                 query: term 
-            },    
-            headers: {
-                Authorization: `Client-ID ${config.UNSPLASH_ACCESS_TOKEN}`
-            }
+            } 
         })
-        console.log(response.data.results)
+        
+        this.setState({ waifus: response.data.results })
     }
 
     render() {
         return (
             <div className="ui container" style={{marginTop: '10px'}}>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
+                Found: {this.state.waifus.length} Waifus
             </div>
         )
     }
