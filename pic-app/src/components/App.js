@@ -1,5 +1,6 @@
 import React from 'react'
 
+import ImageList from './ImageList'
 import SearchBar from './SearchBar'
 import unsplash from '../api/unsplash'
 
@@ -7,7 +8,9 @@ class App extends React.Component {
     state = {
         waifus: []
     }
-    // // --- NOTE: Using A Promise
+
+    // --- NOTE: Using A Promise
+    // --- Uncomment below to use a promise. Make sure to comment out the async version below
     // onSearchSubmit(term) {
     //     // --- Call to Axios Function
     //     axios.get('/search/photos', {
@@ -28,15 +31,17 @@ class App extends React.Component {
                 query: term 
             } 
         })
-        
-        this.setState({ waifus: response.data.results })
+
+        this.setState({ 
+            waifus: response.data.results 
+        })
     }
 
     render() {
         return (
             <div className="ui container" style={{marginTop: '10px'}}>
                 <SearchBar onSubmit={this.onSearchSubmit}/>
-                Found: {this.state.waifus.length} Waifus
+                <ImageList images={this.state.waifus}/>
             </div>
         )
     }
