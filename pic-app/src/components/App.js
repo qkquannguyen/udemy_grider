@@ -5,9 +5,26 @@ import SearchBar from './SearchBar'
 import config from '../config'
 
 class App extends React.Component {
-    onSearchSubmit(term) {
+    // // --- NOTE: Using A Promise
+    // onSearchSubmit(term) {
+    //     // --- Call to Axios Function
+    //     axios.get('https://api.unsplash.com/search/photos', {
+    //         params: { 
+    //             query: term 
+    //         },    
+    //         headers: {
+    //             Authorization: `Client-ID ${config.UNSPLASH_ACCESS_TOKEN}`
+    //         }
+    //     }).then((response) => {
+    //         // --- NOTE: This is essentially a callback from whatever we get from Unsplash API
+    //         console.log(response.data.results)
+    //     })
+    // }
+
+    // --- NOTE: Using the async keyword
+    async onSearchSubmit(term) {
         // --- Call to Axios Function
-        axios.get('https://api.unsplash.com/search/photos', {
+        const response = await axios.get('https://api.unsplash.com/search/photos', {
             params: { 
                 query: term 
             },    
@@ -15,7 +32,7 @@ class App extends React.Component {
                 Authorization: `Client-ID ${config.UNSPLASH_ACCESS_TOKEN}`
             }
         })
-        console.log("yay")
+        console.log(response.data.results)
     }
 
     render() {

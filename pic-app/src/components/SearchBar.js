@@ -1,4 +1,4 @@
-import React from 'react';
+import React from 'react'
 
 class SearchBar extends React.Component {
     // --- NOTE: This is the way of making an uncontrolled Component
