@@ -1,3 +1,4 @@
+import './ImageList.css'
 import React from 'react'
 
 const ImageList = props => {
@@ -5,7 +6,7 @@ const ImageList = props => {
         // eslint-disable-next-line jsx-a11y/alt-text
         return <img alt={description} key={id} src={urls.regular}/>
     })
-    return <div>{images}</div>
+    return <div className="image-list">{images}</div>
 }
 
 export default ImageList
