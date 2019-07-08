@@ -10,6 +10,11 @@ class App extends React.Component {
         selectedVideo: null
     }
 
+    componentDidMount() {
+        // --- NOTE: This will default the search to "Best Waifus" right at load time
+        this.onTermSubmit('Best Waifus')
+    }
+
     // --- NOTE: Remember this is an asychronous GET request so you must use a Promise or the
     // --------- 'await' syntax
     onTermSubmit = async searchTerm => {
@@ -19,7 +24,8 @@ class App extends React.Component {
             }
         })
         this.setState({
-            videosReturned: response.data.items
+            videosReturned: response.data.items,
+            selectedVideo: response.data.items[0]
         })
     }
 
@@ -32,13 +38,20 @@ class App extends React.Component {
     render() {
         return (
             <div className="ui container">
-                NO WAIFU NO LAIFU
                 <SearchBar onFormSubmit={this.onTermSubmit} />
-                <VideoDetails video={this.state.selectedVideo} />
-                <VideoList 
-                    onVideoSelect={this.onVideoSelect} 
-                    videos={this.state.videosReturned} 
-                />
+                <div className="ui grid">
+                    <div className="ui row">
+                        <div className="eleven wide column">
+                            <VideoDetails video={this.state.selectedVideo} />
+                        </div>
+                        <div className="five wide column">
+                            <VideoList 
+                                onVideoSelect={this.onVideoSelect} 
+                                videos={this.state.videosReturned} 
+                            />
+                        </div>
+                    </div>
+                </div>
             </div>
         )
     }
