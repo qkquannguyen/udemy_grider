@@ -1,5 +1,6 @@
 import React from 'react'
 import SearchBar from './SearchBar'
+import VideoDetails from './VideoDetails'
 import VideoList from './VideoList'
 import youtube from '../api/youtube'
 
@@ -23,7 +24,9 @@ class App extends React.Component {
     }
 
     onVideoSelect = video => {
-        console.log('From the App!', video);
+        this.setState({
+            selectedVideo: video
+        })
     }
 
     render() {
@@ -31,7 +34,11 @@ class App extends React.Component {
             <div className="ui container">
                 NO WAIFU NO LAIFU
                 <SearchBar onFormSubmit={this.onTermSubmit} />
-                <VideoList onVideoSelect={this.onVideoSelect} videos={this.state.videosReturned} />
+                <VideoDetails video={this.state.selectedVideo} />
+                <VideoList 
+                    onVideoSelect={this.onVideoSelect} 
+                    videos={this.state.videosReturned} 
+                />
             </div>
         )
     }
