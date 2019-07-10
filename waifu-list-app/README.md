@@ -1,5 +1,9 @@
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
+## About This Project
+
+This project was made based off of Stephen Grider's Modern React tutorial. I do not own the images utilized in this application. This application is purely for education purposes.
+
 ## Available Scripts
 
 In the project directory, you can run:
