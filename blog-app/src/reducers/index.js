@@ -1,5 +1,6 @@
 import { combineReducers } from 'redux';
+import postReducer from './postReducers';
 
 export default combineReducers({
-    waifu: () => 'Nino Nakano'
+    posts: postReducer
 });
