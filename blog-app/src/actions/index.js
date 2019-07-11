@@ -7,6 +7,15 @@ export const fetchPosts = () => async dispatch => {
     // --- It is still perfectly fine to still do the usual action creator returning an action
     dispatch({
         type: 'FETCH_POSTS',
-        payload: response
+        payload: response.data
     });
 };
+
+export const fetchUser = userId => async dispatch => {
+    const response = await jsonPlaceHolder.get(`/users/${userId}`);
+    
+    dispatch({
+        type: 'FETCH_USER',
+        payload: response.data
+    });
+}
