@@ -7,9 +7,10 @@
 // ------- However, the truth hurts. You can do this all, day every day.
 // ------- The one corner case s
 export default (state = [], action) => {
-    if (action.type === 'FETCH_POSTS') {
-        return action.payload;
+    switch (action.type) {
+        case 'FETCH_POSTS':
+            return action.payload;
+        default:
+            return state;
     }
-    
-    return state;
 };
