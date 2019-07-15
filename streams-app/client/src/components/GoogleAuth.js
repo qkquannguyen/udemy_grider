@@ -1,6 +1,8 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
 import config from '../config'
+import { signIn, signOut } from '../actions'
 
 class GoogleAuth extends React.Component {
     state = {
@@ -22,10 +24,8 @@ class GoogleAuth extends React.Component {
         })
     }
 
-    onAuthChange = () => {
-        this.setState({
-            isSignedIn: this.auth.isSignedIn.get()
-        })
+    onAuthChange = isSignedIn => {
+        (isSignedIn) ? this.props.signIn() : this.props.signOut()
     }
     
     // --- NOTE: These callback function are optional but gives future engineers a clear itnent of
@@ -67,4 +67,7 @@ class GoogleAuth extends React.Component {
     }
 }
 
-export default GoogleAuth
+export default connect(
+    null, 
+    { signIn, signOut }
+)(GoogleAuth)
