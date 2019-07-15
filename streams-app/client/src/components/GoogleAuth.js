@@ -28,13 +28,13 @@ class GoogleAuth extends React.Component {
         })
     }
     
-    // --- NOTE: These helper function are optional but gives future engineers a clear itnent of
+    // --- NOTE: These callback function are optional but gives future engineers a clear itnent of
     // --------- your code
-    onSignIn = () => {
+    onSignInClick = () => {
         this.auth.signIn()
     }
 
-    onSignout = () => {
+    onSignoutClick = () => {
         this.auth.signOut()
     }
 
@@ -43,14 +43,14 @@ class GoogleAuth extends React.Component {
             return null
         } else if (this.state.isSignedIn) {
             return (
-                <button onClick={this.onSignout} className="ui red google button"> 
+                <button onClick={this.onSignoutClick} className="ui red google button"> 
                     <i className="google icon" />
                     Sign out
                 </button>
             )
         } else {
             return (
-                <button  onClick={this.onSignIn} className="ui red google button">
+                <button  onClick={this.onSignInClick} className="ui red google button">
                     <i className="google icon" />
                     Sign In
                 </button>
