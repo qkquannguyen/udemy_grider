@@ -1,3 +1,7 @@
 export const SIGN_IN = 'SIGN_IN'
 export const SIGN_OUT = 'SIGN_OUT'
 export const CREATE_WAIFU = 'CREATE_WAIFU'
+export const FETCH_WAIFU = 'FETCH_WAIFU'
+export const FETCH_WAIFUS = 'FETCH_WAIFUS'
+export const DELETE_WAIFU = 'DELETE_WAIFU'
+export const EDIT_WAIFU = 'EDIT_WAIFU'

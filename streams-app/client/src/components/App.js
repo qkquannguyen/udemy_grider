@@ -30,10 +30,10 @@ const App = () => {
                 <div>
                     <Header />
                     <Route path="/" exact component={WaifuList} />
-                    <Route path="/waifu/new" exact component={WaifuCreate} />
-                    <Route path="/waifu/edit" exact component={WaifuEdit} />
-                    <Route path="/waifu/delete" exact component={WaifuDelete} />
-                    <Route path="/waifu/show" exact component={WaifuShow} />
+                    <Route path="/waifus/new" exact component={WaifuCreate} />
+                    <Route path="/waifus/edit" exact component={WaifuEdit} />
+                    <Route path="/waifus/delete" exact component={WaifuDelete} />
+                    <Route path="/waifus/show" exact component={WaifuShow} />
                 </div>
             </BrowserRouter>
         </div>
