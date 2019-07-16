@@ -3,11 +3,11 @@ import { BrowserRouter, Route } from 'react-router-dom'
 
 import Header from './Header'
 
-import StreamCreate from './streams/StreamCreate'
-import StreamDelete from './streams/StreamDelete'
-import StreamEdit from './streams/StreamEdit'
-import StreamList from './streams/StreamList'
-import StreamShow from './streams/StreamShow'
+import WaifuCreate from './streams/WaifuCreate'
+import WaifuDelete from './streams/WaifuDelete'
+import WaifuEdit from './streams/WaifuEdit'
+import WaifuList from './streams/WaifuList'
+import WaifuShow from './streams/WaifuShow'
 
 // --- NOTE: Do not use anchor tags with react-router.
 // --------- It essentially sends a request to a server and the server will respond back with a
@@ -29,11 +29,11 @@ const App = () => {
             <BrowserRouter>
                 <div>
                     <Header />
-                    <Route path="/" exact component={StreamList} />
-                    <Route path="/streams/new" exact component={StreamCreate} />
-                    <Route path="/streams/edit" exact component={StreamEdit} />
-                    <Route path="/streams/delete" exact component={StreamDelete} />
-                    <Route path="/streams/show" exact component={StreamShow} />
+                    <Route path="/" exact component={WaifuList} />
+                    <Route path="/waifu/new" exact component={WaifuCreate} />
+                    <Route path="/waifu/edit" exact component={WaifuEdit} />
+                    <Route path="/waifu/delete" exact component={WaifuDelete} />
+                    <Route path="/waifu/show" exact component={WaifuShow} />
                 </div>
             </BrowserRouter>
         </div>
