@@ -1,11 +1,23 @@
 import React from 'react'
+import { connect } from 'react-redux'
 
-const WaifuList = () => {
-    return (
-        <div>
-            WaifuList
-        </div>
-    )
+import { fetchWaifus } from '../../actions'
+
+class WaifuList extends React.Component {
+    componentDidMount() {
+        this.props.fetchWaifus()
+    }
+
+    render() {
+        return (
+            <div>
+                WaifuList
+            </div>
+        )
+    }
 }
 
-export default WaifuList
+export default connect(
+    null, 
+    { fetchWaifus }
+)(WaifuList)
