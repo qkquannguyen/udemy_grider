@@ -41,12 +41,12 @@ class WaifuCreate extends React.Component {
                 <Field 
                     name="title" 
                     component={this.renderInput} 
-                    label="Enter Waifu Name"
+                    label="Enter Waifu's video name."
                 />
                 <Field 
                     name="description" 
                     component={this.renderInput} 
-                    label="Describe your Waifu"
+                    label="Describe your Waifu's video."
                 />
                 <button className="ui button primary">
                     Submit
@@ -60,11 +60,11 @@ const validate = (formValues) => {
     const errors = {}
 
     if (!formValues.title) {
-        errors.title = "You must enter your waifu's name."
+        errors.title = "You must enter your waifu's video name."
     }
 
     if (!formValues.description) {
-        errors.description = "You must enter your waifu's description."
+        errors.description = "You must enter your waifu's video description."
     }
 
     return errors
