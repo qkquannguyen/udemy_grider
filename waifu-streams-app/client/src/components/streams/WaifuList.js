@@ -1,5 +1,6 @@
 import React from 'react'
 import { connect } from 'react-redux'
+import { Link } from 'react-router-dom'
 
 import { fetchWaifus } from '../../actions'
 
@@ -40,6 +41,18 @@ class WaifuList extends React.Component {
         })
     }
 
+    renderCreateButton() {
+        if (this.props.isSignedIn) {
+            return (
+                <div style={ { textAlign: 'right' } }>
+                    <Link to="/waifus/new" className="ui button primary">
+                        Create Waifu
+                    </Link>
+                </div>
+            )
+        }
+    }
+
     render() {
         return (
             <div>
@@ -49,6 +62,7 @@ class WaifuList extends React.Component {
                 <div className="ui celled list">
                     {this.renderWaifuList()}
                 </div>
+                {this.renderCreateButton()}
             </div>
         )
     }
@@ -57,7 +71,8 @@ class WaifuList extends React.Component {
 const mapStateToProps = (state) => {
     return {
         waifus: Object.values(state.waifus),
-        currentUserId: state.auth.userId
+        currentUserId: state.auth.userId,
+        isSignedIn: state.auth.isSignedIn
     }
 }
 
