@@ -22,8 +22,9 @@ export const signOut = () => {
     }
 }
 
-export const createWaifu = formValues =>  async dispatch => {
-    const response = await waifus.post('/waifus', formValues)
+export const createWaifu = formValues =>  async (dispatch, getState) => {
+    const { userId } = getState().auth
+    const response = await waifus.post('/waifus', { ...formValues, userId })
     dispatch({
         type: CREATE_WAIFU,
         payload: response.data

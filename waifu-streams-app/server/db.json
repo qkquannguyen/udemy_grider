@@ -3,14 +3,26 @@
     {
       "title": "Nino Nakano Best Girl",
       "description": "The Quintessential Quintuplets",
-      "user": "Nino Nakano",
+      "userId": "107505454838884878633",
       "id": 1
     },
     {
       "title": "Itsuki Nakano Second Best Girl",
       "description": "The Quintessential Quintuplets",
-      "user": "Itsuki Nakano",
+      "userId": "107505454838884878633",
       "id": 2
+    },
+    {
+      "title": "002 vs Sakurajima Mai",
+      "description": "Who is the better waifu?",
+      "userId": "107505454838884878633",
+      "id": 3
+    },
+    {
+      "title": "Bellona - Epic 7",
+      "description": "Watch Bellona smug face for 10 hours",
+      "userId": "107505454838884878633",
+      "id": 4
     }
   ]
 }
