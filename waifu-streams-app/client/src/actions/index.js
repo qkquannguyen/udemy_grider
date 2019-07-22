@@ -1,7 +1,7 @@
 import history from '../history'
 import waifus from '../apis/waifus'
-import {
-    SIGN_IN,
+import { 
+    SIGN_IN, 
     SIGN_OUT,
     CREATE_WAIFU,
     DELETE_WAIFU,
@@ -23,14 +23,9 @@ export const signOut = () => {
     }
 }
 
-export const createWaifu = formValues => async (dispatch, getState) => {
-    const {
-        userId
-    } = getState().auth
-    const response = await waifus.post('/waifus', {
-        ...formValues,
-        userId
-    })
+export const createWaifu = formValues =>  async (dispatch, getState) => {
+    const { userId } = getState().auth
+    const response = await waifus.post('/waifus', { ...formValues, userId })
     dispatch({
         type: CREATE_WAIFU,
         payload: response.data
@@ -54,6 +49,7 @@ export const editWaifu = (id, formValues) => async dispatch => {
         type: EDIT_WAIFU,
         payload: response.data
     })
+    history.push('/')
 }
 
 export const fetchWaifu = id => async dispatch => {
