@@ -43,7 +43,7 @@ export const deleteWaifu = id => async dispatch => {
 }
 
 export const editWaifu = (id, formValues) => async dispatch => {
-    const response = await waifus.put(`/waifus/${id}`, formValues)
+    const response = await waifus.patch(`/waifus/${id}`, formValues)
 
     dispatch({
         type: EDIT_WAIFU,

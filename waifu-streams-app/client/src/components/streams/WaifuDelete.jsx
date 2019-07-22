@@ -1,7 +1,14 @@
 import React from "react";
 
+import Modal from '../Modal'
+
 const WaifuDelete = () => {
-	return <div>WaifuDelete</div>;
+	return (
+        <div>
+            Waifu Video WaifuDelete
+            <Modal />
+        </div>
+    )
 };
 
 export default WaifuDelete;
