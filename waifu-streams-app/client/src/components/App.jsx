@@ -38,7 +38,7 @@ const App = () => {
 						component={WaifuEdit}
 					/>{" "}
 					<Route
-						path="/waifus/delete"
+						path="/waifus/delete/:id"
 						exact
 						component={WaifuDelete}
 					/>{" "}
