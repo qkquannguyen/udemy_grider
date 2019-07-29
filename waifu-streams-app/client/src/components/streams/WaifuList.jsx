@@ -37,7 +37,9 @@ class WaifuList extends React.Component {
 					{this.renderAdminButtons(waifu)}
 					<i className="large middle aligned icon camera" />
 					<div className="content">
-						{waifu.title}
+						<Link to={`/waifus/${waifu.id}`} className="header">
+							{waifu.title}
+						</Link>
 						<div className="description">{waifu.description}</div>
 					</div>
 				</div>

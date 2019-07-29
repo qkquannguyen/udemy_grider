@@ -1,5 +1,5 @@
 import React from "react";
-import { Router, Route } from "react-router-dom";
+import { Route, Router, Switch } from "react-router-dom";
 
 import Header from "./Header.jsx";
 import history from "../history";
@@ -30,19 +30,21 @@ const App = () => {
 			<Router history={history}>
 				<div>
 					<Header />
-					<Route path="/" exact component={WaifuList} />{" "}
-					<Route path="/waifus/new" exact component={WaifuCreate} />{" "}
-					<Route
-						path="/waifus/edit/:id"
-						exact
-						component={WaifuEdit}
-					/>{" "}
-					<Route
-						path="/waifus/delete/:id"
-						exact
-						component={WaifuDelete}
-					/>{" "}
-					<Route path="/waifus/show" exact component={WaifuShow} />{" "}
+					<Switch>
+						<Route path="/" exact component={WaifuList} />{" "}
+						<Route path="/waifus/new" exact component={WaifuCreate} />{" "}
+						<Route
+							path="/waifus/edit/:id"
+							exact
+							component={WaifuEdit}
+						/>{" "}
+						<Route
+							path="/waifus/delete/:id"
+							exact
+							component={WaifuDelete}
+						/>{" "}
+						<Route path="/waifus/:id" exact component={WaifuShow} />{" "}
+					</Switch>
 				</div>{" "}
 			</Router>{" "}
 		</div>

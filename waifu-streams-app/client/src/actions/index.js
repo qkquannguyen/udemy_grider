@@ -40,6 +40,7 @@ export const deleteWaifu = id => async dispatch => {
         type: DELETE_WAIFU,
         payload: id
     })
+    history.push('/')
 }
 
 export const editWaifu = (id, formValues) => async dispatch => {
