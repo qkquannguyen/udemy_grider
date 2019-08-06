@@ -5,7 +5,7 @@ import LanguageContext from "../context/LanguageContext.jsx";
 
 class Button extends React.Component {
 	renderSubmit(language) {
-		return language === "english" ? "Submit" : "Enviar"
+		return language === "english" ? "Submit" : "Enviar";
 	}
 
 	renderButton(color) {
