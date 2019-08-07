@@ -1,4 +1,4 @@
-import React, { useState, useEffect } from "react";
+import { useState, useEffect } from "react";
 import axios from "axios";
 
 const useResources = resource => {
@@ -18,16 +18,4 @@ const useResources = resource => {
 	return resources;
 };
 
-const ResourceList = ({ resource }) => {
-	const resources = useResources(resource);
-
-	return (
-		<ul>
-			{resources.map(record => (
-				<li key={record.id}>{record.title}</li>
-			))}
-		</ul>
-	);
-};
-
-export default ResourceList;
+export default useResources;
